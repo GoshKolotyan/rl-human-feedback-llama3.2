@@ -1,0 +1,27 @@
+[project]
+name = "human-feedback-llama2"
+version = "0.1.0"
+description = "Fine-tunes Llama 2 using RLHF for production chatbots"
+readme = "README.md"
+requires-python = ">=3.12"
+keywords = ["Llama", "RLHF"]
+license = { text = "MIT" }
+
+authors = [
+  { name = "Gosh Kolotyan", email = "goshkolotyan@gmail.com" }
+]
+
+dependencies = [
+  "torch",
+  "transformers",
+  "trl",
+  "datasets",
+  "deepspeed",
+  "wandb",
+  "bitsandbytes",
+  "peft"
+]
+
+[project.urls]
+"Repository" = "https://github.com/GoshKolotyan/human-feedback-llama2"
+"Bug Tracker" = "https://github.com/GoshKolotyan/human-feedback-llama2/issues"

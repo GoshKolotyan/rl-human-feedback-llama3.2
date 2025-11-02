@@ -31,3 +31,7 @@ __pypackages__/
 
 # Ruff stuff:
 .ruff_cache/
+
+#Data 
+
+Dataset/

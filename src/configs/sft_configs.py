@@ -7,11 +7,11 @@ class SFTConfigs:
         self.torch_dtype = torch.float16
         self.device_map = "auto"
         
-        # LoRA settings
-        self.lora_r = 16
-        self.lora_alpha = 32
+        # LoRA settings (optimized for 12GB GPU)
+        self.lora_r = 8  # Reduced from 16 to 8 (fewer trainable params)
+        self.lora_alpha = 16  # Keep 2x rank ratio
         self.lora_dropout = 0.05
-        self.target_modules = ["q_proj", "k_proj", "v_proj", "o_proj"]
+        self.target_modules = ["q_proj", "v_proj"]  # Only 2 modules instead of 4
         
         # Training hyperparameters
         self.learning_rate = 2e-4
@@ -39,8 +39,9 @@ class SFTConfigs:
         
         # Logging and evaluation
         self.logging_steps = 10
-        self.eval_steps = 100
-        self.evaluation_strategy = "steps"
+        self.eval_steps = 500  # Evaluate less frequently to save time
+        self.evaluation_strategy = "steps"  # Re-enabled with optimizations
+        self.per_device_eval_batch_size = 1  # Small batch for eval
 
 
         # Dataset path 

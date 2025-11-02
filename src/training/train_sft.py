@@ -72,6 +72,7 @@ class SupervisedFineTuningTrainer:
             # Training hyperparameters
             num_train_epochs=self.configs.num_train_epochs,
             per_device_train_batch_size=self.configs.per_device_train_batch_size,
+            per_device_eval_batch_size=self.configs.per_device_eval_batch_size,
             gradient_accumulation_steps=self.configs.gradient_accumulation_steps,
             
             # Learning rate and optimization
@@ -124,11 +125,11 @@ class SupervisedFineTuningTrainer:
         trainer = SFTTrainer(
             model=self.model,
             train_dataset=self.train_dataset,
-            eval_dataset=self.eval_dataset,
+            eval_dataset=self.eval_dataset,  # Re-enabled with reduced LoRA params
             args=training_args,
             processing_class=self.tokenizer,
-            # max_seq_length=self.configs.max_seq_length,  # Fixed: uncommented
-            # packing=False,  # Fixed: uncommented - don't pack examples
+            # max_seq_length=self.configs.max_seq_length,
+            # packing=False,
         )
         
         # Step 5: Start training!

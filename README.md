@@ -1,6 +1,6 @@
 ---
 
-#rl-human-feedback-llama3.2
+# rl-human-feedback-llama3.2
 
 Fine-tunes **Llama 3.2 3B** using **RLHF** for production chatbots.
 

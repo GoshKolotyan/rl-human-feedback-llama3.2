@@ -4,8 +4,9 @@ from peft import PeftModel, AutoPeftModelForCausalLM
 
 
 class LlamaModel:
-    def __init__(self, model_id: str, 
-                 checkpoint_path: str ,
+    def __init__(self, 
+                 model_id: str = "meta-llama/Llama-3.2-3B", 
+                 checkpoint_path: str = "./checkpoints/sft_model" ,
                  use_checkpoint: bool = False):
         self.use_checkpoint = use_checkpoint
         self.checkpoint_path = checkpoint_path or model_id

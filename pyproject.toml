@@ -19,7 +19,9 @@ dependencies = [
   "deepspeed",
   "wandb",
   "bitsandbytes",
-  "peft"
+  "peft",
+  "python-telegram-bot>=21.0",
+  "pydantic>=2.12.3",
 ]
 
 [project.urls]

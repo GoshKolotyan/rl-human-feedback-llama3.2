@@ -37,3 +37,7 @@ Dataset/
 
 #.env 
 .env
+
+
+#checkopints
+checkpoints/*
